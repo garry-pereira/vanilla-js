@@ -1,7 +1,7 @@
 const colors = ['green', 'red', 'rgba(133,122,200)', '#f15025', 'pink']
 
 const btn = document.getElementById('btn')
-const page = document.getElementById('h4')
+const page = document.querySelector('h4')
 const color = document.querySelector('span')
 
 btn.addEventListener('click', () => {
@@ -16,12 +16,13 @@ btn.addEventListener('click', () => {
 	}
 	const body = document.querySelector('body')
 	const currentColor = body.style.background
-	if (page == 'color flipper') {
+	if (page.innerText == 'Color Flipper') {
 		const newColors = colors.filter(color => color != currentColor)
 		const newModeNumber = Math.floor(Math.random()*4)
 		body.style.background = newColors[newModeNumber]
 		color.innerText = newColors[newModeNumber]
 	} else {
+		console.log(page)
 		const randomColor = getRanHex(6).toUpperCase()
 		body.style.background = randomColor
 		color.innerText = randomColor
